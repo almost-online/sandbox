@@ -1,0 +1,27 @@
+version: "3"
+services:
+  be:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+      args:
+        - DEV_MOD=dev
+    environment:
+      XDEBUG_CONFIG: "remote_host=10.10.1.1 remote_enable=1"
+      PHP_IDE_CONFIG: "serverName=sandbox"
+    restart: always
+    volumes:
+      - ./:/var/www/html
+    ports:
+      - "80:80"
+    networks:
+      - debug
+
+networks:
+  debug:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 10.10.1.0/28
+
