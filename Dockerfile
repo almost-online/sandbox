@@ -1,6 +1,6 @@
 FROM php:7.3-apache
 
-RUN yes | pecl install xdebug-2.8.0
+RUN yes | pecl install xdebug
 
 # need for xdebug
 ARG DEV_MOD=prod

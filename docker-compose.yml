@@ -13,7 +13,7 @@ services:
     volumes:
       - ./:/var/www/html
     ports:
-      - "80:80"
+      - "127.1.1.2:80:80"
     networks:
       - debug
 
